@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    function:
+      definition: simpleConsumer
+    stream:
+      bindings:
+        simpleConsumer-in-0:
+          destination: demo-topic
+
+# By default, the Kafka binder connects to localhost:9092

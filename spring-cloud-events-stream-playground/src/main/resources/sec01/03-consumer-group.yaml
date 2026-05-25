@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    function:
+      definition: simpleConsumer
+    stream:
+      bindings:
+        simpleConsumer-in-0:
+          destination: demo-topic
+          group: demo-consumer-group # consumer group
+      kafka:
+        binder:
+          brokers:
+            - localhost:9092
+          consumer-properties:
+            auto.offset.reset: earliest # --from-beginning

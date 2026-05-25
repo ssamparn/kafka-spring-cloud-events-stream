@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    function:
+      definition: simpleConsumer
+    stream:
+      bindings:
+        simpleConsumer-in-0:
+          destination: demo-topic-1,demo-topic-2  # multiple topics
+          group: demo-consumer-group # consumer group
+      kafka:
+        binder:
+          brokers:
+            - localhost:9092
+          consumer-properties:
+            auto.offset.reset: earliest # --from-beginning
+
+# Recommendation: Consuming from multiple topics is not recommended for production grade applications.
+# For such scenarios, please use separate bindings.
