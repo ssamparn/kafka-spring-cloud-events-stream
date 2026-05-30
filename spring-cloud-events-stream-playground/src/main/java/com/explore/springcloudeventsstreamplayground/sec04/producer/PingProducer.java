@@ -25,9 +25,9 @@ public class PingProducer implements CommandLineRunner {
 
         try (var reader = process.inputReader()) {
             reader.lines()
-                    .forEach(line -> {
-                        log.info("sending: {}", line);
-                        this.streamBridge.send(PING_OUT, line);
+                    .forEach(lineEvent -> {
+                        log.info("sending: {}", lineEvent);
+                        this.streamBridge.send(PING_OUT, lineEvent);
                     });
         }
     }

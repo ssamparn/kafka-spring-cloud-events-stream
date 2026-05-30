@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    function:
+      definition: digitalOrdersConsumer
+    stream:
+      bindings:
+        digitalOrdersConsumer-in-0:
+          destination: digital-delivery-events # topic name
+          group: digital-orders-consumer-group
+      kafka:
+        binder:
+          brokers:
+            - localhost:9092
+          consumer-properties:
+            auto.offset.reset: earliest # --from-beginning
