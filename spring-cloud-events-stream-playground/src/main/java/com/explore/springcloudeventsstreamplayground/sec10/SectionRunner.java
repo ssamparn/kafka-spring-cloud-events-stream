@@ -9,7 +9,7 @@ public class SectionRunner {
     static class DigitalDeliveryConsumer {
         static void main() {
             SpringApplication.run(
-                    DigitalDeliveryConsumer.class, "--section=sec09", "--config=01-digital-consumer"
+                    DigitalDeliveryConsumer.class, "--section=sec10", "--config=01-digital-consumer"
             );
         }
     }
@@ -18,7 +18,7 @@ public class SectionRunner {
     static class PhysicalDeliveryConsumer {
         static void main() {
             SpringApplication.run(
-                    PhysicalDeliveryConsumer.class, "--section=sec09", "--config=02-physical-consumer"
+                    PhysicalDeliveryConsumer.class, "--section=sec10", "--config=02-physical-consumer"
             );
         }
     }
@@ -27,7 +27,7 @@ public class SectionRunner {
     static class Processor {
         static void main() {
             SpringApplication.run(
-                    Processor.class, "--section=sec09", "--config=03-processor"
+                    Processor.class, "--section=sec10", "--config=03-processor"
             );
         }
     }
@@ -36,7 +36,7 @@ public class SectionRunner {
     static class Producer {
         static void main() {
             SpringApplication.run(
-                    Producer.class, "--section=sec09", "--config=04-producer"
+                    Producer.class, "--section=sec10", "--config=04-producer"
             );
         }
     }
