@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    function:
+      definition: orderProcessor
+    stream:
+      bindings:
+        orderProcessor-in-0:
+          destination: order-events # topic name
+          group: order-processor-consumer-group # consumer group
+        digital-delivery-output-binding:
+          destination: digital-delivery-events # topic name
+        fedex-physical-delivery-output-binding:
+          destination: fedex-physical-delivery-events # topic name
+        usps-physical-delivery-output-binding:
+          destination: usps-physical-delivery-events # topic name
+      kafka:
+        binder:
+          brokers:
+            - localhost:9092
+          consumer-properties:
+            auto.offset.reset: earliest # --from-beginning

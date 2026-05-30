@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    function:
+      definition: uspsPhysicalOrdersConsumer
+    stream:
+      bindings:
+        uspsPhysicalOrdersConsumer-in-0:
+          destination: usps-physical-delivery-events # topic name
+          group: usps-physical-orders-consumer-group
+      kafka:
+        binder:
+          brokers:
+            - localhost:9092
+          consumer-properties:
+            auto.offset.reset: earliest # --from-beginning

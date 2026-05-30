@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    function:
+      definition: fedexPhysicalOrdersConsumer
+    stream:
+      bindings:
+        fedexPhysicalOrdersConsumer-in-0:
+          destination: fedex-physical-delivery-events # topic name
+          group: fedex-physical-orders-consumer-group
+      kafka:
+        binder:
+          brokers:
+            - localhost:9092
+          consumer-properties:
+            auto.offset.reset: earliest # --from-beginning
