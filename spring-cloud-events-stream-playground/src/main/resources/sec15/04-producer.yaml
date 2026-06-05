@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    function:
+      definition: orderProducer
+    stream:
+      bindings:
+        orderProducer-out-0:
+          destination: order-events # topic name
+      poller:
+        fixed-delay: 100 # 100ms default value
+      kafka:
+        binder:
+          brokers:
+            - localhost:9092
+          producer-properties:
+            key.serializer: org.apache.kafka.common.serialization.IntegerSerializer
