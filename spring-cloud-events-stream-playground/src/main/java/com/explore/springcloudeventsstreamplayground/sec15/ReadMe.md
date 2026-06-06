@@ -1,4 +1,4 @@
-## Concurrent Message Processing with Spring Cloud Stream
+## Concurrent Message Processing with Spring Cloud Stream (Framework Level Concurrency)
 
 **Note:** To avoid issues during the demos, it is recommended to spin up a fresh Kafka container for each demo to clean up the state.
 Navigate to the path where the **single-node-kafka-cluster.yml** is located and then run the below command.

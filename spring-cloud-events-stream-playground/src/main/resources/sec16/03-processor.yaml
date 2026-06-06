@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    function:
+      definition: orderProcessor
+    stream:
+      bindings:
+        orderProcessor-in-0:
+          destination: order-events # producer topic name
+          group: order-processor-consumer-group # consumer group
+          consumer:
+            batch-mode: true
+        digital-delivery-output-binding:
+          destination: digital-delivery-events # topic name
+        physical-delivery-output-binding:
+          destination: physical-delivery-events # topic name
+      kafka:
+        binder:
+          brokers:
+            - localhost:9092
+          consumer-properties:
+            auto.offset.reset: earliest # --from-beginning
+            key.deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
