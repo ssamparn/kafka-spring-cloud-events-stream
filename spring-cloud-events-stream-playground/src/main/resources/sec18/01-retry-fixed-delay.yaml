@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    function:
+      definition: consumer
+    stream:
+      bindings:
+        consumer-in-0:
+          destination: demo-topic
+          group: demo-group
+          consumer:
+            max-attempts: 3                   # retry delivery attempts
+            back-off-initial-interval: 2000   # wait time before first retry (ms)
+            back-off-multiplier: 1.0          # fixed retry delay. Meaning subsequent retries will be done every 2000 milliseconds (2 seconds). If value is 2, the 2nd retry will be in 4 seconds and 3rd retry will be in 8 seconds
+      kafka:
+        binder:
+          brokers:
+            - localhost:9092
+          consumer-properties:
+            auto.offset.reset: earliest
